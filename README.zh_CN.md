@@ -2,12 +2,21 @@
 
 # PPT 翻页笔
 
+> [!IMPORTANT]
+> **本项目仅供个人学习研究，严禁商用。**
+>
+> 当前项目新增部分采用 PolyForm Noncommercial License 1.0.0，具体权利及适用范围以 [LICENSE](LICENSE) 和 [NOTICE](NOTICE) 为准；上游 MIT、其他第三方许可及此前已授予的许可仍然有效。
+
 把 AI Passport 变成 Mac 演讲遥控器，支持上下翻页、电脑音量控制和实时黑白画面缩略预览，已实测 WPS 放映。
+
+## v1.0 冻结快照
+
+[v1.0 Release 快照](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0) 包含完整固件、Mac 伴侣、源码快照、许可文件及 SHA-256 校验清单。Release 记录对应的冻结提交，后续 main 分支改动不改变该快照。
 
 ## 下载
 
-- [Mac 伴侣程序 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/raw/refs/heads/main/ppt-pager-mac.zip)：必须使用；先在 macOS 安装 Python 3，再解压此文件。
-- [当前固件源码 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/raw/refs/heads/main/ppt-pager-source.zip)：包含本玩法源码、依赖配置、测试和开发文档，不是可烧录固件。
+- [Mac 伴侣程序 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-mac.zip)：必须使用；先在 macOS 安装 Python 3，再解压此文件。
+- [当前固件源码 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-source.zip)：包含本玩法源码、依赖配置、测试和开发文档，不是可烧录固件。
 
 ## 上手
 
@@ -20,6 +29,6 @@
 
 用户于 2026-11-09 确认预览、WPS 上下翻页及双向音量控制均生效。重启重连、Wi-Fi 重置和长时间运行尚未验收。
 
-源码 ZIP 包含本玩法基于 [FoloToy 原始工程](https://gitee.com/FoloToy/ai-passport) 的实际修改，并非未修改的模板。社区完整镜像 SHA-256 为 `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`。上游 MIT 许可证已保留在 LICENSE 和源码包内。没有包含私有凭据或运行日志。
+源码 ZIP 包含本玩法基于 [FoloToy 原始工程](https://gitee.com/FoloToy/ai-passport) 的实际修改，并非未修改的模板。完整镜像 SHA-256 为 `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`。上游 MIT 许可证已保留在 [LICENSE-UPSTREAM-MIT](LICENSE-UPSTREAM-MIT) 和源码包内。交付包排除了私有凭据、机器元数据和运行日志。
 
 Mac 伴侣仅使用 Python 标准库和 macOS 自带工具，请在可信局域网使用。当前不支持 Windows。

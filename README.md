@@ -2,12 +2,21 @@
 
 # PPT Pager
 
+> [!IMPORTANT]
+> **This project is for personal study and research only. Commercial use is strictly prohibited.**
+>
+> The current project-specific contributions are offered under PolyForm Noncommercial License 1.0.0. The formal [LICENSE](LICENSE) and [NOTICE](NOTICE) define the scope; upstream MIT and other third-party licenses, and previously granted permissions, remain in effect.
+
 A Mac presentation remote with previous/next slide controls, output-volume adjustment, and a live monochrome screen preview. Tested with WPS presentations using FoloToy AI Passport.
+
+## Frozen v1.0
+
+[v1.0 Release snapshot](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0) contains the full firmware, Mac companion, source snapshot, license files and a SHA-256 verification manifest. The release records the exact frozen commit; later changes to main do not change that snapshot.
 
 ## Downloads
 
-- [Mac companion ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/raw/refs/heads/main/ppt-pager-mac.zip) — required; install Python 3 on macOS, then extract the ZIP.
-- [Current firmware source ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/raw/refs/heads/main/ppt-pager-source.zip) — contains this application's source, dependencies, tests, and development documentation. It is not a flashable image.
+- [Mac companion ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-mac.zip) — required; install Python 3 on macOS, then extract the ZIP.
+- [Current firmware source ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-source.zip) — contains this application's source, dependencies, tests, and development documentation. It is not a flashable image.
 
 ## Start
 
@@ -20,6 +29,6 @@ A Mac presentation remote with previous/next slide controls, output-volume adjus
 
 The user confirmed screen preview, WPS previous/next, and both volume controls on 2026-11-09. Restart/reconnect, Wi-Fi reset, and extended operation remain unverified.
 
-The source ZIP includes this app's changes to the [upstream FoloToy baseline](https://gitee.com/FoloToy/ai-passport), not just an unmodified template. The community full-image SHA-256 is `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`. The preserved upstream MIT license is in LICENSE and the source archive. No private credentials or runtime logs are included.
+The source ZIP includes this app's changes to the [upstream FoloToy baseline](https://gitee.com/FoloToy/ai-passport), not just an unmodified template. The full-image SHA-256 is `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`. The preserved upstream MIT license is in [LICENSE-UPSTREAM-MIT](LICENSE-UPSTREAM-MIT) and the source archive. Distribution packages exclude private credentials, machine metadata and runtime logs.
 
 The Mac companion uses only Python's standard library and built-in macOS tools. Use it on a trusted LAN. Windows is not supported.

@@ -1,0 +1,19 @@
+PPT Pager: license scope and attribution
+
+Starting with the v1.0 snapshot, PolyForm Noncommercial License 1.0.0 in
+LICENSE is offered for the project's original additions and modifications,
+only to the extent that the licensor has the authority to license them.
+This includes the project-specific PPT application and Mac companion.
+
+The upstream FoloToy baseline remains subject to its original MIT license,
+preserved verbatim in LICENSE-UPSTREAM-MIT. Existing copyright notices,
+SPDX identifiers and licenses of other third-party components remain in force.
+The new noncommercial terms do not override those separate licenses or
+withdraw permissions already granted with earlier copies of the project.
+
+The README's personal-study/noncommercial statement describes the intended
+use of the current project-specific contributions. The formal terms in
+LICENSE and the applicable third-party licenses govern the permitted uses.
+
+Upstream source: https://gitee.com/FoloToy/ai-passport
+Project: https://github.com/khemis8866-dotcom/ai-passport-ppt-pager
