@@ -1,34 +1,46 @@
 [简体中文](README.zh_CN.md) · **English**
 
-# PPT Pager
+# PPT Pager · Color edition
 
-> [!IMPORTANT]
 > **This project is for personal study and research only. Commercial use is strictly prohibited.**
->
-> The current project-specific contributions are offered under PolyForm Noncommercial License 1.0.0. The formal [LICENSE](LICENSE) and [NOTICE](NOTICE) define the scope; upstream MIT and other third-party licenses, and previously granted permissions, remain in effect.
+> Project-specific contributions use PolyForm Noncommercial 1.0.0; see [LICENSE](LICENSE)
+> and [NOTICE](NOTICE). Upstream MIT, third-party licenses and earlier grants remain in effect.
 
-A Mac presentation remote with previous/next slide controls, output-volume adjustment, and a live monochrome screen preview. Tested with WPS presentations using FoloToy AI Passport.
+Keep your presentation in hand: see a live color preview on the device, move
+between slides and adjust your Mac's volume. Walk around within your local
+network's coverage rather than staying beside the computer. Network coverage
+and isolation settings determine reachability. No Bluetooth pairing is needed.
+Tested with WPS presentations; macOS only. This is a screen preview, not video.
 
-## Frozen v1.0
+## v1.1 downloads
 
-[v1.0 Release snapshot](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0) contains the full firmware, Mac companion, source snapshot, license files and a SHA-256 verification manifest. The release records the exact frozen commit; later changes to main do not change that snapshot.
+- [Color Mac companion](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/ppt-pager-mac.zip): Python 3.9 or newer, no extra Python packages.
+- [Complete firmware](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/FoloToy-AI-Passport-full.bin): merged image for offset 0x0; a merged flash may reset saved Wi-Fi.
+- [Current source snapshot](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/ppt-pager-source.zip): application, companion, tests, font materials and engineering docs.
 
-## Downloads
+## Get started
 
-- [Mac companion ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-mac.zip) — required; install Python 3 on macOS, then extract the ZIP.
-- [Current firmware source ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-source.zip) — contains this application's source, dependencies, tests, and development documentation. It is not a flashable image.
+1. Extract the companion ZIP. Open Terminal with Command+Space. Run `python3 --version`; install a compatible Python 3 from [python.org](https://www.python.org/downloads/macos/) if needed.
+2. When the device asks for Wi-Fi setup, use an iPhone to join the `PPTPager-xxxx` hotspot shown on its screen, using the displayed hotspot password. Open http://192.168.4.1 in Safari, select the venue's 2.4 GHz Wi-Fi, enter its password, and tap Connect PPT Pager. Wait until the device indicates it is waiting for the computer. Connect the Mac to the same LAN; the iPhone can return to its usual Wi-Fi.
+3. Stop an older companion with Control+C. In Terminal type `cd` plus one space, drag the extracted `PPT-Pager-Mac` folder from Finder into Terminal, and press Return. Run `python3 ppt_pager_companion.py --code 123456`, replacing 123456 with the device's current six-digit pairing code. Keep Terminal running.
+4. Grant Terminal Screen Recording, Accessibility, and any requested System Events automation permission. Restart Terminal if requested and repeat step 3. Otherwise restart the companion after granting permission. Wait for the device to indicate connection.
+5. Keep the WPS slideshow in the foreground. UP: previous; DOWN: next; short OK: volume up; long OK: volume down. Control+C stops the companion. After a device restart, stop the old companion and rerun with the new pairing code. For setup failure rejoin its hotspot and choose Choose Wi-Fi again; double-press UP only to clear saved Wi-Fi and change networks.
 
-## Start
+The new companion is required for color. Older companions remain compatible but
+send monochrome previews. Native color is 240 x 135 with aspect-preserving
+filtered resizing; tiny desktop text is still limited by the display size.
 
-1. When the device shows IPHONE WI-FI SETUP, connect an iPhone to the PPTPager-xxxx hotspot shown after JOIN. The hotspot password appears after AP. Open http://192.168.4.1 in Safari, select your venue's 2.4 GHz Wi-Fi, enter its password, and tap Connect PPT Pager. LOOKING FOR MAC means setup succeeded. Put the Mac on the same LAN and return the iPhone to its normal Wi-Fi.
-2. In Mac Terminal, enter the extracted companion folder and run `python3 ppt_pager_companion.py --code 123456`, replacing 123456 with the six digits after PAIR. Give Terminal Screen Recording and Accessibility permissions; approve System Events automation if requested. Wait for CONNECTED.
-3. Start your slideshow and keep it in the foreground. UP goes back; DOWN advances; short OK raises the Mac volume; long OK lowers it. The device shows a monochrome screen thumbnail.
-4. If setup fails, use Choose Wi-Fi again. Double-press UP to change networks. A device restart generates a new PAIR code: restart the companion with that code. Ctrl+C stops the companion.
+## Validation and earlier release
 
-## Validation and source
+Build and host checks passed, including 14 companion tests. The user confirmed
+color preview, WPS previous/next and both volume controls on the flashed v1.1
+image. Extended operation and network-active heap measurements remain unverified.
+The complete-image SHA-256 is
+`167ba37a191d376fc0a9da282998d8ddca9185bfb105fa59d665babf42450d3b`.
 
-The user confirmed screen preview, WPS previous/next, and both volume controls on 2026-11-09. Restart/reconnect, Wi-Fi reset, and extended operation remain unverified.
-
-The source ZIP includes this app's changes to the [upstream FoloToy baseline](https://gitee.com/FoloToy/ai-passport), not just an unmodified template. The full-image SHA-256 is `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`. The preserved upstream MIT license is in [LICENSE-UPSTREAM-MIT](LICENSE-UPSTREAM-MIT) and the source archive. Distribution packages exclude private credentials, machine metadata and runtime logs.
-
-The Mac companion uses only Python's standard library and built-in macOS tools. Use it on a trusted LAN. Windows is not supported.
+The [frozen v1.0 release](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0)
+remains available. Current source is in the v1.1 source snapshot linked above;
+the repository is maintained as a release-download index. The top-level
+`ppt-pager-source.zip` is the legacy v1.0 snapshot; use the v1.1 release link for
+the current source. Distribution excludes
+private credentials, device identities, machine paths, logs and debugging files.

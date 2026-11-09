@@ -1,34 +1,40 @@
 **简体中文** · [English](README.md)
 
-# PPT 翻页笔
+# PPT 翻页笔 · 彩色版
 
-> [!IMPORTANT]
 > **本项目仅供个人学习研究，严禁商用。**
->
-> 当前项目新增部分采用 PolyForm Noncommercial License 1.0.0，具体权利及适用范围以 [LICENSE](LICENSE) 和 [NOTICE](NOTICE) 为准；上游 MIT、其他第三方许可及此前已授予的许可仍然有效。
+> 项目新增部分采用 PolyForm Noncommercial 1.0.0，适用范围见 [LICENSE](LICENSE)
+> 和 [NOTICE](NOTICE)；上游 MIT、第三方许可及既有授权继续有效。
 
-把 AI Passport 变成 Mac 演讲遥控器，支持上下翻页、电脑音量控制和实时黑白画面缩略预览，已实测 WPS 放映。
+把演讲画面握在手里：设备上查看彩色实时预览，随手翻页、调节 Mac 音量。
+在同一局域网覆盖范围内，可以离开电脑从容走动。实际连接范围取决于网络覆盖
+及隔离设置，无需蓝牙配对。已实测 WPS，当前仅支持 macOS。这是画面预览，不是视频。
 
-## v1.0 冻结快照
+## v1.1 下载
 
-[v1.0 Release 快照](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0) 包含完整固件、Mac 伴侣、源码快照、许可文件及 SHA-256 校验清单。Release 记录对应的冻结提交，后续 main 分支改动不改变该快照。
-
-## 下载
-
-- [Mac 伴侣程序 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-mac.zip)：必须使用；先在 macOS 安装 Python 3，再解压此文件。
-- [当前固件源码 ZIP](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.0/ppt-pager-source.zip)：包含本玩法源码、依赖配置、测试和开发文档，不是可烧录固件。
+- [彩色 Mac 伴侣](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/ppt-pager-mac.zip)：需要 Python 3.9 或更新版本，无额外 Python 包。
+- [完整固件](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/FoloToy-AI-Passport-full.bin)：合并镜像写入 0x0；完整刷写可能重置保存的 Wi-Fi。
+- [当前源码快照](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/download/v1.1/ppt-pager-source.zip)：含玩法、伴侣、测试、字体材料和工程文档。
 
 ## 上手
 
-1. 设备显示 IPHONE WI-FI SETUP 后，用 iPhone 连接 JOIN 后的 PPTPager-xxxx 热点，密码看 AP 后的内容。Safari 打开 http://192.168.4.1，选择现场 2.4 GHz Wi-Fi，输入密码并点 Connect PPT Pager。设备显示 LOOKING FOR MAC 即配网成功。Mac 接入同一局域网，手机回连原 Wi-Fi。
-2. Mac 终端进入解压后的伴侣文件夹，运行 `python3 ppt_pager_companion.py --code 123456`，将 123456 换成设备 PAIR 后的六位码。为终端授予屏幕录制、辅助功能权限；如有 System Events 自动化请求，也请允许。等设备显示 CONNECTED。
-3. 开始放映并保持窗口为前台。上键上一页，下键下一页；OK 短按加音量，长按减音量。设备显示电脑画面的黑白缩略预览。
-4. 配网失败用 Choose Wi-Fi again 重选；双击上键可换网。设备重启后配对码会改变，请用新码重启伴侣。用完在终端按 Ctrl+C 停止。
+1. 解压伴侣 ZIP。按 Command+空格打开“终端”，运行 `python3 --version`；需要时从 [Python 官网](https://www.python.org/downloads/macos/) 安装适合本机的 Python 3。
+2. 设备提示配网时，iPhone 连接屏幕上的 `PPTPager-xxxx` 热点，密码看“热点密码”。Safari 打开 http://192.168.4.1，扫描选择现场 2.4 GHz Wi-Fi，输入密码后点 Connect PPT Pager；设备显示“等待电脑连接”才表示成功。Mac 连同一局域网，手机可回原 Wi-Fi。
+3. 旧伴侣先按 Control+C 停止。在终端输入 `cd` 加一个空格，把解压后的 `PPT-Pager-Mac` 文件夹从访达拖入终端，再回车。运行 `python3 ppt_pager_companion.py --code 123456`，把 123456 换成设备当前六位“配对码”，保持终端运行。
+4. 为“终端”开启屏幕录制、辅助功能及提示的 System Events 控制权限。若要求重开终端，重复第 3 步；否则授权后重启伴侣。等待设备显示“已连接电脑”。
+5. WPS 保持前台放映：上键上一页，下键下一页；确定短按加音量、长按减音量。Control+C 停止伴侣。设备重启后先停旧伴侣，再用新配对码启动。配网失败重连设备热点、点网页 Choose Wi-Fi again 重选；仅换网时双击上键清除旧 Wi-Fi 后重新配网。
 
-## 验证与源码
+彩色画面必须使用新版伴侣；旧伴侣仍兼容，但只提供黑白预览。原生彩色画面为
+240×135，使用保持比例的过滤缩放；电脑上的细小文字仍受设备屏幕大小限制。
 
-用户于 2026-11-09 确认预览、WPS 上下翻页及双向音量控制均生效。重启重连、Wi-Fi 重置和长时间运行尚未验收。
+## 验证与旧版
 
-源码 ZIP 包含本玩法基于 [FoloToy 原始工程](https://gitee.com/FoloToy/ai-passport) 的实际修改，并非未修改的模板。完整镜像 SHA-256 为 `825a14d514b7dc94b1d2c94449a3364b60669b507302e5b8b5d8317e5f7fb0fb`。上游 MIT 许可证已保留在 [LICENSE-UPSTREAM-MIT](LICENSE-UPSTREAM-MIT) 和源码包内。交付包排除了私有凭据、机器元数据和运行日志。
+构建、主机检查及 14 项伴侣测试通过。用户已在这份烧录的 v1.1 镜像上确认
+彩色预览、WPS 翻页和双向音量均正常。长时间运行、联网时堆余量测量仍待验证。
+完整镜像 SHA-256：
+`167ba37a191d376fc0a9da282998d8ddca9185bfb105fa59d665babf42450d3b`。
 
-Mac 伴侣仅使用 Python 标准库和 macOS 自带工具，请在可信局域网使用。当前不支持 Windows。
+[冻结的 v1.0 Release](https://github.com/khemis8866-dotcom/ai-passport-ppt-pager/releases/tag/v1.0)
+继续保留。当前源码在上方 v1.1 源码快照中，仓库首页作为版本下载索引维护；
+根目录的 `ppt-pager-source.zip` 是 v1.0 旧快照，当前源码请使用 v1.1 Release 链接。
+发布包排除私有凭据、设备标识、本机路径、日志和调试文件。
